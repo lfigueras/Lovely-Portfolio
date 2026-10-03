@@ -64,14 +64,9 @@
           </div>
         </div>
 
-        <%# Right: single minimalist portrait %>
+        <%# Right: edited portrait %>
         <div class="relative mx-auto flex h-[420px] w-full max-w-md items-center justify-center">
-          <%# Subtle offset outline accent %>
-          <div class="absolute h-[360px] w-60 translate-x-5 translate-y-5 rounded-t-full border border-[#e35c2b]/40"></div>
-          <%# Portrait (arched top for your uploaded photo) %>
-          <figure class="relative h-[380px] w-60 overflow-hidden rounded-t-full">
-            <img src="https://placehold.co/320x480/f6eee4/bbb?text=Your+Photo" alt="Lovely Joy Figueras" class="h-full w-full object-cover">
-          </figure>
+          <%= image_tag "profile-orange.png", alt: "Illustrated portrait of Lovely Joy Figueras", class: "h-[380px] w-[380px] max-w-full object-contain" %>
         </div>
       </div>
   </section>
@@ -103,7 +98,7 @@
         <p class="mt-6 text-base leading-relaxed text-gray-600">
           I&rsquo;m a Software Engineer with 5 years of experience, focused primarily on Android and mobile
           development, with full-stack web experience as well. I work across the full development lifecycle in
-          Agile teams &mdash; designing features, debugging tricky production issues, and shipping fixes safely to
+          Agile teams, implementing features, troubleshooting production issues, and shipping fixes safely through
           release. I currently build and refine payment logic around EMV specifications across card brands for
           secure, compliant transactions, and I bring AI into my daily workflow with GitHub Copilot and Claude
           Code. I enjoy owning problems end-to-end, from root cause to production.
@@ -206,6 +201,7 @@
             github: "https://github.com/lfigueras/Baking-Recipe-Keeper",
             live: "https://github.com/lfigueras/Baking-Recipe-Keeper/releases/latest",
             live_label: "Download APK",
+            image: "baking-recipe-keeper-screen.jpg",
             mobile: true,
             color: "e35c2b"
           },
@@ -265,7 +261,11 @@
             <%# Image %>
             <div class="<%= "lg:order-1" if i.odd? %> <%= "flex justify-center" if project[:mobile] %>">
               <% if project[:mobile] %>
-                <img src="https://placehold.co/320x640/<%= project[:color] %>/f6eee4?text=<%= CGI.escape(project[:title]) %>" alt="<%= project[:title] %>" class="h-[440px] w-auto rounded-2xl object-cover ring-1 ring-[#1a1a1a]/10">
+                <% if project[:image] %>
+                  <%= image_tag project[:image], alt: project[:title], class: "h-[500px] w-auto rounded-2xl object-cover ring-1 ring-[#1a1a1a]/10" %>
+                <% else %>
+                  <img src="https://placehold.co/320x640/<%= project[:color] %>/f6eee4?text=<%= CGI.escape(project[:title]) %>" alt="<%= project[:title] %>" class="h-[500px] w-auto rounded-2xl object-cover ring-1 ring-[#1a1a1a]/10">
+                <% end %>
               <% else %>
                 <div class="overflow-hidden rounded-2xl ring-1 ring-[#1a1a1a]/10">
                   <img src="https://placehold.co/600x400/<%= project[:color] %>/f6eee4?text=<%= CGI.escape(project[:title]) %>" alt="<%= project[:title] %>" class="aspect-video h-full w-full object-cover">
