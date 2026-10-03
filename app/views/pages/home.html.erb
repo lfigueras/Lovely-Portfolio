@@ -210,6 +210,9 @@
             tags: ["Kotlin", "Jetpack Compose", "Retrofit", "Room"],
             desc: "A real-time Android weather app built with Jetpack Compose and MVVM that pulls live forecasts from the OpenWeather API (Retrofit/Moshi), with location services and a locally stored history of weather reports in Room.",
             github: "https://github.com/lfigueras/GWeather",
+            live: "https://github.com/lfigueras/GWeather/releases/download/v0.1.0/Gweather-v0.1.0.apk",
+            live_label: "Download APK",
+            image: "gweather.png",
             mobile: true,
             color: "86d0c9"
           },
@@ -261,11 +264,13 @@
             <%# Image %>
             <div class="<%= "lg:order-1" if i.odd? %> <%= "flex justify-center" if project[:mobile] %>">
               <% if project[:mobile] %>
-                <% if project[:image] %>
-                  <%= image_tag project[:image], alt: project[:title], class: "h-[500px] w-auto rounded-2xl object-cover ring-1 ring-[#1a1a1a]/10" %>
-                <% else %>
-                  <img src="https://placehold.co/320x640/<%= project[:color] %>/f6eee4?text=<%= CGI.escape(project[:title]) %>" alt="<%= project[:title] %>" class="h-[500px] w-auto rounded-2xl object-cover ring-1 ring-[#1a1a1a]/10">
-                <% end %>
+                <div class="rounded-[2rem] border-[7px] border-[#1a1a1a] bg-[#1a1a1a] p-1">
+                  <% if project[:image] %>
+                    <%= image_tag project[:image], alt: project[:title], class: "h-[500px] w-auto rounded-[1.5rem] object-cover" %>
+                  <% else %>
+                    <img src="https://placehold.co/320x640/<%= project[:color] %>/f6eee4?text=<%= CGI.escape(project[:title]) %>" alt="<%= project[:title] %>" class="h-[500px] w-auto rounded-[1.5rem] object-cover">
+                  <% end %>
+                </div>
               <% else %>
                 <div class="overflow-hidden rounded-2xl ring-1 ring-[#1a1a1a]/10">
                   <img src="https://placehold.co/600x400/<%= project[:color] %>/f6eee4?text=<%= CGI.escape(project[:title]) %>" alt="<%= project[:title] %>" class="aspect-video h-full w-full object-cover">
