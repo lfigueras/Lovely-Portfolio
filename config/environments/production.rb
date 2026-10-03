@@ -56,18 +56,6 @@ Rails.application.configure do
   # Set host to be used by links generated in mailer templates.
   config.action_mailer.default_url_options = { host: "example.com" }
 
-  # Deliver contact-form email through Gmail SMTP (credentials come from env vars).
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "gmail.com",
-    user_name: ENV["GMAIL_USER"] || Rails.application.credentials.dig(:gmail, :user),
-    password: ENV["GMAIL_APP_PASSWORD"] || Rails.application.credentials.dig(:gmail, :app_password),
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
-
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true
