@@ -25,7 +25,7 @@ and **Tailwind CSS** — no SPA framework, minimal JavaScript.
 | Frontend | Hotwire (Turbo + Stimulus), Tailwind CSS v4, Importmap |
 | Assets | Propshaft |
 | Mail | Action Mailer + Gmail SMTP |
-| Background/Infra | Solid Queue, Solid Cache, Solid Cable |
+| Background/Infra | In-process cache, async jobs, async Action Cable in production |
 | Deploy | Docker + Kamal |
 | Quality | RuboCop (Omakase), Brakeman |
 
@@ -85,9 +85,25 @@ The résumé source lives at `public/resume.html`. After editing it, regenerate 
 
 ## Deployment
 
-Containerized with Docker and deployed via [Kamal](https://kamal-deploy.org).
-Update the placeholder values in `config/deploy.yml` (image, server IP, host),
-set `RAILS_MASTER_KEY` and the Gmail secrets, then:
+### Render
+
+The repository includes a `render.yaml` Blueprint for a Docker web service and
+PostgreSQL database in Singapore. In Render, create a new Blueprint from this
+repository and provide `RAILS_MASTER_KEY` when prompted. The portfolio uses the
+database for Rails startup/schema preparation; cache, background jobs, and cable
+use in-process adapters, so no separate Solid service databases are needed.
+
+The Blueprint uses Render's free web and PostgreSQL plans for an initial setup.
+Render's free PostgreSQL database is temporary, so upgrade it to a paid plan for
+a persistent production deployment. The contact form also
+needs the Gmail credentials from Rails encrypted credentials (decrypted by
+`RAILS_MASTER_KEY`) or the `GMAIL_USER` / `GMAIL_APP_PASSWORD` environment vars.
+
+### Kamal
+
+The app can also be deployed via [Kamal](https://kamal-deploy.org). Update the
+placeholder values in `config/deploy.yml` (image, server IP, host), set
+`RAILS_MASTER_KEY` and registry credentials, then:
 
 ```bash
 bin/kamal setup   # first time
