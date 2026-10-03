@@ -223,6 +223,7 @@
             github: "https://github.com/lfigueras/seatmate-ph",
             live: "https://seatmate-ph.com/",
             live_label: "Visit Site",
+            image: "vanrental.png",
             color: "f6c453"
           },
           {
@@ -232,6 +233,7 @@
             github: "https://github.com/lfigueras/Budgety-JS",
             live: "https://lfigueras.github.io/Budgety-JS/",
             live_label: "Live Demo",
+            image: "budgetcalculator.png",
             color: "9ab7f6"
           }
         ].each_with_index do |project, i| %>
@@ -272,8 +274,12 @@
                   <% end %>
                 </div>
               <% else %>
-                <div class="overflow-hidden rounded-2xl ring-1 ring-[#1a1a1a]/10">
-                  <img src="https://placehold.co/600x400/<%= project[:color] %>/f6eee4?text=<%= CGI.escape(project[:title]) %>" alt="<%= project[:title] %>" class="aspect-video h-full w-full object-cover">
+                <div class="overflow-hidden rounded-2xl">
+                  <% if project[:image] %>
+                    <%= image_tag project[:image], alt: project[:title], class: "block h-auto w-full" %>
+                  <% else %>
+                    <img src="https://placehold.co/600x400/<%= project[:color] %>/f6eee4?text=<%= CGI.escape(project[:title]) %>" alt="<%= project[:title] %>" class="aspect-video h-full w-full object-cover">
+                  <% end %>
                 </div>
               <% end %>
             </div>
