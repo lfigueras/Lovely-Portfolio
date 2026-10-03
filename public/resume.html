@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lovely Joy Figueras — Résumé</title>
+  <style>
+    :root { --ink: #1a1a1a; --muted: #555; --accent: #e35c2b; --line: #e3ddd2; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: #f3eee6;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .page {
+      max-width: 820px;
+      margin: 24px auto;
+      background: #fff;
+      padding: 48px 56px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.08);
+    }
+    header { border-bottom: 2px solid var(--ink); padding-bottom: 16px; margin-bottom: 20px; }
+    h1 { font-size: 30px; margin: 0; letter-spacing: .5px; }
+    .role { color: var(--accent); font-weight: 700; font-size: 15px; margin-top: 2px; text-transform: uppercase; letter-spacing: 1.5px; }
+    .contact { margin-top: 10px; font-size: 12.5px; color: var(--muted); }
+    .contact a { color: var(--muted); text-decoration: none; }
+    .contact a:hover { color: var(--accent); }
+    section { margin-top: 22px; }
+    h2 {
+      font-size: 13px; text-transform: uppercase; letter-spacing: 2px;
+      color: var(--accent); margin: 0 0 10px; border-bottom: 1px solid var(--line); padding-bottom: 5px;
+    }
+    .job { margin-bottom: 16px; }
+    .job-head { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 2px 12px; }
+    .job-title { font-weight: 700; font-size: 14.5px; }
+    .job-dates { color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+    .job-meta { font-size: 12.5px; color: var(--muted); font-style: italic; margin: 2px 0 6px; }
+    ul.bullets { margin: 6px 0 0; padding-left: 18px; }
+    ul.bullets li { margin-bottom: 4px; }
+    .skills-grid { display: grid; grid-template-columns: 150px 1fr; row-gap: 7px; column-gap: 12px; }
+    .skills-grid .k { font-weight: 700; }
+    .skills-grid .v { color: var(--muted); }
+    .edu { margin-bottom: 8px; }
+    .edu .t { font-weight: 700; }
+    .edu .m { color: var(--muted); font-size: 12.5px; }
+    @media print {
+      body { background: #fff; font-size: 12px; }
+      .page { box-shadow: none; margin: 0; max-width: 100%; padding: 24px 32px; }
+      a { color: var(--ink); }
+      /* Keep each heading with its content and avoid splitting blocks across pages. */
+      h2 { page-break-after: avoid; break-after: avoid; }
+      .job, .skills-grid, .edu { page-break-inside: avoid; break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>LOVELY JOY FIGUERAS</h1>
+      <div class="role">Software Engineer</div>
+      <div class="contact">
+        Pasig City, Philippines &nbsp;|&nbsp;
+        <a href="mailto:lovelyfigueras@gmail.com">lovelyfigueras@gmail.com</a> &nbsp;|&nbsp;
+        +63 9311273321 &nbsp;|&nbsp;
+        <a href="https://www.linkedin.com/in/lovely-joy-figueras">LinkedIn</a> &nbsp;|&nbsp;
+        <a href="https://github.com/lfigueras">GitHub</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>Summary</h2>
+      <p>
+        Software Engineer with 5 years of experience, focused primarily on Android and mobile development, with
+        full-stack web experience as well. Skilled in Kotlin/Java Android development, REST API integration, and
+        secure payment systems, including hands-on EMV certification work across multiple device vendors. I automate
+        Android build and release pipelines in Azure DevOps and bring AI tools (GitHub Copilot, Claude Code) into my
+        daily development workflow. Comfortable working in Agile teams and owning problems end-to-end, from
+        root-cause investigation to production release.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Android Developer — Serino Systems, Inc.</span>
+          <span class="job-dates">January 2023 – Present</span>
+        </div>
+        <div class="job-meta">Kotlin, Java, Android, Azure DevOps, CI/CD, EMV, Firebase Crashlytics, Agile</div>
+        <ul class="bullets">
+          <li>Build and maintain features for production payment applications, supporting reliable, secure transaction processing for live merchant transactions.</li>
+          <li>Implement and validate EMV certification fixes against card-brand specifications (Visa, Mastercard, and others) across multiple device vendors, ensuring compliance and successful certification audits.</li>
+          <li>Build and automate APK build &amp; release pipelines in Azure DevOps (automated builds and version management), reducing manual steps for the Android team.</li>
+          <li>Investigate production issues and deliver hotfixes and feature enhancements across multiple device platforms.</li>
+          <li>Monitor production app stability with Firebase Crashlytics, triaging crash reports and logs to investigate and resolve issues.</li>
+          <li>Optimize multi-layered application architecture to improve transaction reliability and application stability.</li>
+          <li>Integrate AI capabilities into production features and use GitHub Copilot and Claude Code to accelerate development.</li>
+          <li>Collaborate with cross-functional teams on complex payment components and transaction workflows.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Junior Android Engineer — RiderKo</span>
+          <span class="job-dates">August 2021 – January 2023</span>
+        </div>
+        <div class="job-meta">Kotlin, REST APIs, Retrofit, MVP, Google Analytics, Facebook SDK, Agile</div>
+        <ul class="bullets">
+          <li>Developed and maintained Android application features using Kotlin and MVP architecture.</li>
+          <li>Integrated REST APIs with Retrofit to support transaction workflows and user data, improving reliability of data exchange across app features.</li>
+          <li>Investigated performance issues and improved application responsiveness and reliability.</li>
+          <li>Integrated Google Analytics and the Facebook SDK (AppEventsLogger) to track installs, purchases, and custom events for product insights.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Full-Stack Web Developer — Editmode (Remote)</span>
+          <span class="job-dates">February 2021 – August 2021</span>
+        </div>
+        <div class="job-meta">Ruby on Rails, JavaScript, Tailwind UI, Alpine.js, MVC, Agile</div>
+        <ul class="bullets">
+          <li>Built responsive front-end UI components using Tailwind UI and Alpine.js.</li>
+          <li>Developed back-end functionality with Ruby on Rails using the MVC pattern &mdash; models, controllers, routing, and server-side logic.</li>
+          <li>Improved SEO and maintained functionality across production web systems.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="k">Mobile</div><div class="v">Kotlin, Java, Android, Jetpack Compose, MVVM, MVP</div>
+        <div class="k">Payments</div><div class="v">EMV Certification, Secure Transaction Systems</div>
+        <div class="k">Integration</div><div class="v">REST APIs, Retrofit, Firebase Crashlytics, Google Analytics</div>
+        <div class="k">Web</div><div class="v">Ruby on Rails, Hotwire (Turbo/Stimulus), JavaScript, Tailwind, Alpine.js, MVC</div>
+        <div class="k">AI Tools</div><div class="v">GitHub Copilot, Claude Code</div>
+        <div class="k">DevOps</div><div class="v">Azure DevOps, CI/CD &amp; Build Automation, Git</div>
+        <div class="k">Methodologies</div><div class="v">Agile Development</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Baking Recipe Keeper — Android App</span>
+          <span class="job-dates"><a href="https://github.com/lfigueras/Baking-Recipe-Keeper">GitHub</a></span>
+        </div>
+        <div class="job-meta">Kotlin, Jetpack Compose, Material 3, MVVM + StateFlow, Room, Coroutines</div>
+        <ul class="bullets">
+          <li>Offline-first baking recipe app with live serving &amp; unit conversion, favorites and tags, shopping lists, a photo/video gallery, and backup &amp; restore; shipped a signed APK release.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">GWeather — Android App</span>
+          <span class="job-dates"><a href="https://github.com/lfigueras/GWeather">GitHub</a></span>
+        </div>
+        <div class="job-meta">Kotlin, Jetpack Compose, MVVM, Retrofit/Moshi, Room, Navigation Compose</div>
+        <ul class="bullets">
+          <li>Real-time weather app built with Jetpack Compose and MVVM, integrating the OpenWeather API (Retrofit/Moshi) with location services and a locally stored history in Room; covered by unit tests.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">SeatMate PH — Business Landing Site</span>
+          <span class="job-dates"><a href="https://github.com/lfigueras/seatmate-ph">GitHub</a> · <a href="https://seatmate-ph.com/">Live</a></span>
+        </div>
+        <div class="job-meta">Ruby on Rails, Hotwire (Turbo + Stimulus), Tailwind CSS (live in production)</div>
+        <ul class="bullets">
+          <li>Responsive marketing site for a van-rental and land-transfer business, built with Ruby on Rails and Hotwire — step-by-step booking flow, route-based pricing, and Messenger lead capture.</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-head">
+          <span class="job-title">Budgety — Budgeting Web App</span>
+          <span class="job-dates"><a href="https://github.com/lfigueras/Budgety-JS">GitHub</a> · <a href="https://lfigueras.github.io/Budgety-JS/">Live</a></span>
+        </div>
+        <div class="job-meta">JavaScript, HTML, CSS</div>
+        <ul class="bullets">
+          <li>Budgeting app for tracking income and expenses with automatic balance and percentage calculations, built in vanilla JavaScript using the module pattern.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="edu">
+        <div class="t">Avion School — Full-Stack Web Development</div>
+        <div class="m">600+ hours intensive full-stack training · 2021</div>
+      </div>
+      <div class="edu">
+        <div class="t">EARIST — B.S. in Applied Physics (Computer Science Emphasis)</div>
+        <div class="m">2020</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
