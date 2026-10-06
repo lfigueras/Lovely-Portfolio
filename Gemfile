@@ -7,7 +7,7 @@ gem "propshaft"
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 # Pin json to 2.x; JSON 3.0 has compatibility differences with current Rails dependencies.
-gem "json", "~> 2.9"
+gem "json", "~> 3.0"
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
