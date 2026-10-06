@@ -85,8 +85,9 @@ The résumé source lives at `public/resume.html`. After editing it, regenerate 
 
 The repository includes a `render.yaml` Blueprint for a database-free Docker
 web service in Singapore. In Render, create a new Blueprint from this repository
-and provide `RAILS_MASTER_KEY` when prompted. Cache, background jobs, and Action
-Cable use in-process adapters; no database or persistent disk is required.
+and provide `RAILS_MASTER_KEY` when prompted. Commits to `main` trigger deploys.
+Cache, background jobs, and Action Cable use in-process adapters; no database or
+persistent disk is required.
 
 In production, the contact form sends through Resend. Configure `RESEND_API_KEY`
 and a verified `RESEND_FROM_EMAIL` sender address in Render.
