@@ -33,16 +33,12 @@ and **Tailwind CSS** — no SPA framework, minimal JavaScript.
 
 - Ruby 3.3.6
 - Bundler
-- PostgreSQL
 
 ## Getting Started
 
 ```bash
 # install dependencies
 bundle install
-
-# set up the database
-bin/rails db:prepare
 
 # run the app (Rails server + Tailwind watcher)
 bin/dev
@@ -54,8 +50,8 @@ Then open http://localhost:3000.
 
 ## Contact Form Setup
 
-The contact form sends email through Gmail SMTP. Credentials are read from Rails
-encrypted credentials (or environment variables) — nothing secret is committed.
+In development, the contact form sends through Gmail SMTP. Credentials are read
+from Rails encrypted credentials or environment variables; no secrets are committed.
 
 1. Enable 2-Step Verification on the Gmail account and create an **App Password**.
 2. Add them to encrypted credentials:
@@ -87,17 +83,17 @@ The résumé source lives at `public/resume.html`. After editing it, regenerate 
 
 ### Render
 
-The repository includes a `render.yaml` Blueprint for a Docker web service and
-PostgreSQL database in Singapore. In Render, create a new Blueprint from this
-repository and provide `RAILS_MASTER_KEY` when prompted. The portfolio uses the
-database for Rails startup/schema preparation; cache, background jobs, and cable
-use in-process adapters, so no separate Solid service databases are needed.
+The repository includes a `render.yaml` Blueprint for a database-free Docker
+web service in Singapore. In Render, create a new Blueprint from this repository
+and provide `RAILS_MASTER_KEY` when prompted. Cache, background jobs, and Action
+Cable use in-process adapters; no database or persistent disk is required.
 
-The Blueprint uses Render's free web and PostgreSQL plans for an initial setup.
-Render's free PostgreSQL database is temporary, so upgrade it to a paid plan for
-a persistent production deployment. The contact form also
-needs the Gmail credentials from Rails encrypted credentials (decrypted by
-`RAILS_MASTER_KEY`) or the `GMAIL_USER` / `GMAIL_APP_PASSWORD` environment vars.
+In production, the contact form sends through Resend. Configure `RESEND_API_KEY`
+and a verified `RESEND_FROM_EMAIL` sender address in Render.
+
+The Blueprint uses Render's free web-service plan for an initial deployment.
+The free instance may spin down during inactivity. Gmail credentials are needed
+only if you want to test the contact form in development.
 
 ### Kamal
 
