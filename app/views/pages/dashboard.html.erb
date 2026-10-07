@@ -1,0 +1,266 @@
+<% content_for :title, "Lovely Joy Figueras — Software Engineer" %>
+
+<% projects = [
+  { title: "Baking Recipe Keeper", tags: ["Kotlin", "Jetpack Compose", "MVVM", "Room"], desc: "An offline-first Android recipe app with scaling, lists, media, and backup.", github: "https://github.com/lfigueras/Baking-Recipe-Keeper", live: "https://github.com/lfigueras/Baking-Recipe-Keeper/releases/download/v1.1/BakingRecipeKeeper-v1.1.apk", live_label: "APK", image: "baking-recipe-keeper-screen.jpg" },
+  { title: "GWeather", tags: ["Kotlin", "Compose", "Retrofit", "Room"], desc: "A real-time weather app with location-aware forecasts and local report history.", github: "https://github.com/lfigueras/GWeather", live: "https://github.com/lfigueras/GWeather/releases/download/v0.1.0/Gweather-v0.1.0.apk", live_label: "APK", image: "gweather.png" },
+  { title: "ParkBack", tags: ["Rails", "PostgreSQL", "Hotwire", "Leaflet"], desc: "Save a parking spot and find your way back with live distance, direction, and a map.", github: "https://github.com/lfigueras/Park-Back", live: "https://parkback-2zwf.onrender.com/", live_label: "Live", image: "parkback-find.png" },
+  { title: "SeatMate PH", tags: ["Rails", "Hotwire", "Tailwind", "Production"], desc: "A van-rental booking flow with route pricing and Messenger lead capture.", github: "https://github.com/lfigueras/seatmate-ph", live: "https://seatmate-ph.com/", live_label: "Live", image: "vanrental.png" },
+  { title: "Budgety", tags: ["JavaScript", "HTML", "CSS"], desc: "A lightweight budget tracker with live balance and expense calculations.", github: "https://github.com/lfigueras/Budgety-JS", live: "https://lfigueras.github.io/Budgety-JS/", live_label: "Demo", image: "budgetcalculator.png" }
+] %>
+
+<% skill_groups = [
+  { group: "Mobile", tools: "Kotlin, Java, Android, Jetpack Compose, MVVM" },
+  { group: "Web", tools: "Ruby on Rails, Hotwire, JavaScript, Tailwind" },
+  { group: "Database", tools: "PostgreSQL, Room" },
+  { group: "Integration", tools: "REST APIs, Retrofit, Firebase, payments" },
+  { group: "AI", tools: "GitHub Copilot, Claude Code" },
+  { group: "Delivery", tools: "Azure DevOps, CI/CD, Agile, Git" }
+] %>
+
+<% nav_items = [
+  { id: "overview", label: "Overview" },
+  { id: "projects", label: "Projects" },
+  { id: "skills", label: "Skills" },
+  { id: "about", label: "About" },
+  { id: "contact", label: "Contact" }
+] %>
+
+<div data-controller="dashboard" class="fixed inset-0 overflow-hidden bg-[#f6eee4] text-[#1a1a1a]">
+  <div class="grid h-full grid-rows-[60px_minmax(0,1fr)_58px] lg:grid-cols-[15rem_minmax(0,1fr)] lg:grid-rows-1">
+    <aside class="hidden min-h-0 flex-col border-r border-[#1a1a1a]/10 bg-[#f1e7d9] px-5 py-6 lg:flex">
+      <div class="flex items-center gap-3">
+        <%= image_tag "profile-orange.png", alt: "", class: "h-11 w-11 object-contain" %>
+        <div class="min-w-0">
+          <p class="truncate text-sm font-extrabold">Lovely Joy Figueras</p>
+          <p class="mt-0.5 text-[11px] text-[#1a1a1a]/60">Software Engineer</p>
+        </div>
+      </div>
+
+      <p class="mb-2 mt-10 font-mono text-[10px] uppercase text-[#1a1a1a]/45">Workspace</p>
+      <nav aria-label="Portfolio views" class="space-y-1">
+        <% nav_items.each_with_index do |item, index| %>
+          <button type="button" data-dashboard-target="navItem" data-view="<%= item[:id] %>"
+                  data-action="dashboard#show" aria-current="<%= item[:id] == "overview" ? "page" : "false" %>"
+                  class="group flex w-full items-center gap-3 border-l-2 border-transparent px-3 py-2.5 text-left text-sm text-[#1a1a1a]/65 transition hover:bg-white/60 hover:text-[#1a1a1a] aria-[current=page]:border-[#e35c2b] aria-[current=page]:bg-white aria-[current=page]:font-semibold aria-[current=page]:text-[#1a1a1a]">
+            <span class="w-5 font-mono text-[10px] text-[#e35c2b]"><%= format("%02d", index + 1) %></span>
+            <%= item[:label] %>
+          </button>
+        <% end %>
+      </nav>
+
+      <div class="mt-auto border-t border-[#1a1a1a]/10 pt-4">
+        <p class="font-mono text-[10px] uppercase text-[#1a1a1a]/45">Find me</p>
+        <a href="mailto:lovelyfigueras@gmail.com" class="mt-2 block text-xs text-[#1a1a1a]/75 hover:text-[#e35c2b]">Email Lovely</a>
+        <div class="mt-3 flex gap-4 text-xs font-semibold">
+          <a href="https://github.com/lfigueras" target="_blank" rel="noopener" class="hover:text-[#e35c2b]">GitHub</a>
+          <a href="https://www.linkedin.com/in/lovely-joy-figueras" target="_blank" rel="noopener" class="hover:text-[#e35c2b]">LinkedIn</a>
+        </div>
+        <p class="mt-5 font-mono text-[9px] text-[#1a1a1a]/40">PORTFOLIO · <%= Date.current.year %></p>
+      </div>
+    </aside>
+
+    <header class="flex items-center justify-between border-b border-[#1a1a1a]/10 px-4 lg:hidden">
+      <div class="flex items-center gap-2.5">
+        <span class="grid h-8 w-8 place-items-center bg-[#e35c2b] text-sm font-extrabold text-white">L</span>
+        <div>
+          <p class="text-sm font-extrabold leading-tight">Lovely Figueras</p>
+          <p class="text-[10px] text-[#1a1a1a]/55">Software Engineer</p>
+        </div>
+      </div>
+      <a href="/Lovely-Joy-Figueras-Resume.pdf" target="_blank" rel="noopener" class="border border-[#1a1a1a]/20 px-3 py-2 text-[11px] font-semibold">Resume ↗</a>
+    </header>
+
+    <main class="row-start-2 flex min-h-0 min-w-0 flex-col px-3 pb-2 sm:px-5 lg:col-start-2 lg:row-start-1 lg:px-7 lg:py-5">
+      <header class="hidden h-[4.5rem] shrink-0 items-center justify-between border-b border-[#1a1a1a]/10 pb-4 lg:flex">
+        <div>
+          <p class="font-mono text-[10px] uppercase text-[#e35c2b]">PORTFOLIO / <span data-dashboard-target="viewLabel">OVERVIEW</span></p>
+          <h1 class="mt-1 text-xl font-extrabold">Building reliable software</h1>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-[10px] text-[#1a1a1a]/50">From first commit to production</span>
+          <a href="/Lovely-Joy-Figueras-Resume.pdf" target="_blank" rel="noopener" class="bg-[#e35c2b] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[#c64b20]">Resume ↗</a>
+        </div>
+      </header>
+
+      <div class="relative min-h-0 flex-1 pt-3 lg:pt-5">
+        <section data-dashboard-target="panel" data-view-panel="overview" class="h-full min-h-0">
+          <div class="grid h-full min-h-0 grid-cols-1 gap-4 xl:grid-cols-[minmax(0,1.35fr)_minmax(17rem,0.75fr)]">
+            <section class="flex min-h-0 flex-col overflow-hidden rounded-lg border border-[#1a1a1a]/10 bg-white/70 shadow-sm">
+              <header class="flex h-11 shrink-0 items-center justify-between border-b border-[#1a1a1a]/10 px-1 xl:px-4">
+                <div class="flex items-baseline gap-2">
+                  <h2 class="text-sm font-extrabold">Selected work</h2>
+                  <span class="font-mono text-[10px] text-[#1a1a1a]/45">05 PROJECTS</span>
+                </div>
+                <button type="button" data-dashboard-target="navItem" data-view="projects" data-action="dashboard#show" class="text-[11px] font-semibold text-[#e35c2b] hover:underline">All projects ↗</button>
+              </header>
+              <div class="grid min-h-0 flex-1 grid-rows-[repeat(5,minmax(0,1fr))] divide-y divide-[#1a1a1a]/10">
+                <% projects.each do |project| %>
+                  <article class="grid min-h-0 grid-cols-[3.25rem_minmax(0,1fr)_auto] items-center gap-2.5 py-1.5 sm:grid-cols-[4.5rem_minmax(0,1fr)_auto] sm:gap-3 xl:grid-cols-[6rem_minmax(0,1fr)_auto]">
+                    <%= image_tag project[:image], alt: "", class: "h-16 w-12 rounded-md border border-[#1a1a1a]/10 bg-white object-cover sm:h-20 sm:w-16 xl:h-24 xl:w-20" %>
+                    <div class="min-w-0">
+                      <div class="flex min-w-0 items-baseline gap-2">
+                        <h3 class="truncate text-sm font-bold"><%= project[:title] %></h3>
+                      </div>
+                      <p class="mt-1 truncate font-mono text-[10px] text-[#1a1a1a]/50"><%= project[:tags].first(2).join(" · ") %></p>
+                    </div>
+                    <div class="flex items-center gap-2 text-[11px] font-semibold">
+                      <a href="<%= project[:github] %>" target="_blank" rel="noopener" aria-label="<%= project[:title] %> on GitHub" class="text-[#1a1a1a]/60 hover:text-[#e35c2b]">Code</a>
+                      <a href="<%= project[:live] %>" target="_blank" rel="noopener" aria-label="<%= project[:live_label] %>: <%= project[:title] %>" class="text-[#e35c2b] hover:underline"><%= project[:live_label] %></a>
+                    </div>
+                  </article>
+                <% end %>
+              </div>
+            </section>
+
+            <div class="hidden min-h-0 grid-rows-[auto_minmax(0,1fr)_auto] gap-3 xl:grid">
+              <section class="rounded-lg border border-[#1a1a1a]/10 bg-white/70 p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <p class="font-mono text-[10px] uppercase text-[#e35c2b]">01 / About</p>
+                  <button type="button" data-dashboard-target="navItem" data-view="about" data-action="dashboard#show" class="text-[10px] font-semibold text-[#1a1a1a]/55 hover:text-[#e35c2b]">Read more ↗</button>
+                </div>
+                <p class="mt-2 text-sm font-semibold leading-relaxed">Software engineer with 5 years of experience across Android, web, and payment systems.</p>
+                <p class="mt-1 text-xs leading-relaxed text-[#1a1a1a]/60">I take features from first commit through production, with a focus on reliable releases and clear user experiences.</p>
+              </section>
+
+              <section class="flex min-h-0 flex-col rounded-lg border border-[#1a1a1a]/10 bg-white/70 p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <p class="font-mono text-[10px] uppercase text-[#e35c2b]">02 / Tools I use</p>
+                  <button type="button" data-dashboard-target="navItem" data-view="skills" data-action="dashboard#show" class="text-[10px] font-semibold text-[#1a1a1a]/55 hover:text-[#e35c2b]">All skills ↗</button>
+                </div>
+                <ul class="mt-2 grid min-h-0 flex-1 content-around grid-cols-2 gap-x-3 gap-y-3">
+                  <% skill_groups.first(4).each do |group| %>
+                    <li class="min-w-0">
+                      <p class="text-xs font-bold"><%= group[:group] %></p>
+                      <p class="line-clamp-2 text-[11px] leading-snug text-[#1a1a1a]/60"><%= group[:tools] %></p>
+                    </li>
+                  <% end %>
+                </ul>
+              </section>
+
+              <section class="flex items-center justify-between rounded-lg border border-[#1a1a1a]/10 bg-white/70 px-4 py-3 shadow-sm">
+                <div>
+                  <p class="font-mono text-[10px] uppercase text-[#e35c2b]">03 / Contact</p>
+                  <a href="mailto:lovelyfigueras@gmail.com" class="mt-1 block text-xs font-semibold hover:text-[#e35c2b]">lovelyfigueras@gmail.com</a>
+                </div>
+                <button type="button" data-dashboard-target="navItem" data-view="contact" data-action="dashboard#show" class="border border-[#1a1a1a]/20 px-3 py-2 text-[11px] font-semibold hover:border-[#e35c2b] hover:text-[#e35c2b]">Let&rsquo;s talk ↗</button>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section data-dashboard-target="panel" data-view-panel="projects" hidden class="h-full min-h-0">
+          <div class="flex h-full min-h-0 flex-col">
+            <div class="mb-3 flex shrink-0 items-end justify-between border-b border-[#1a1a1a]/15 pb-3">
+              <div>
+                <p class="font-mono text-[10px] uppercase text-[#e35c2b]">Selected work / 05</p>
+                <h2 class="mt-1 text-xl font-extrabold">Projects</h2>
+              </div>
+              <span class="hidden text-xs text-[#1a1a1a]/50 sm:block">Mobile · web · integrations</span>
+            </div>
+            <div class="grid min-h-0 flex-1 grid-cols-1 gap-2 overflow-hidden md:grid-cols-2 xl:grid-cols-3">
+              <% projects.each do |project| %>
+                <article class="flex min-h-0 items-center gap-3 rounded-lg border border-[#1a1a1a]/10 bg-white/70 p-3 shadow-sm">
+                  <%= image_tag project[:image], alt: "", class: "h-14 w-11 shrink-0 object-cover" %>
+                  <div class="min-w-0 flex-1">
+                    <h3 class="truncate text-xs font-bold"><%= project[:title] %></h3>
+                    <p class="mt-0.5 truncate font-mono text-[9px] text-[#1a1a1a]/50"><%= project[:tags].join(" · ") %></p>
+                    <p class="mt-1 line-clamp-2 text-[10px] leading-snug text-[#1a1a1a]/65"><%= project[:desc] %></p>
+                  </div>
+                  <div class="flex shrink-0 flex-col gap-1 text-[10px] font-semibold">
+                    <a href="<%= project[:github] %>" target="_blank" rel="noopener" class="text-[#1a1a1a]/60 hover:text-[#e35c2b]">GitHub ↗</a>
+                    <a href="<%= project[:live] %>" target="_blank" rel="noopener" class="text-[#e35c2b] hover:underline"><%= project[:live_label] %> ↗</a>
+                  </div>
+                </article>
+              <% end %>
+            </div>
+          </div>
+        </section>
+
+        <section data-dashboard-target="panel" data-view-panel="skills" hidden class="h-full min-h-0">
+          <div class="flex h-full min-h-0 flex-col">
+            <div class="mb-3 shrink-0 border-b border-[#1a1a1a]/15 pb-2">
+              <p class="font-mono text-[10px] uppercase text-[#e35c2b]">Tools / practice</p>
+              <h2 class="mt-1 text-xl font-extrabold">Skills &amp; tools</h2>
+            </div>
+            <div class="grid min-h-0 flex-1 grid-cols-2 gap-3 md:grid-cols-3">
+              <% skill_groups.each do |group| %>
+                <section class="rounded-lg border border-[#1a1a1a]/10 bg-white/70 p-3 shadow-sm">
+                  <p class="font-mono text-[10px] uppercase text-[#e35c2b]"><%= group[:group] %></p>
+                  <p class="mt-1 text-sm font-semibold leading-relaxed"><%= group[:tools] %></p>
+                </section>
+              <% end %>
+            </div>
+          </div>
+        </section>
+
+        <section data-dashboard-target="panel" data-view-panel="about" hidden class="h-full min-h-0">
+          <div class="grid h-full min-h-0 grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_17rem]">
+            <div class="flex min-h-0 flex-col justify-center rounded-lg border border-[#1a1a1a]/10 bg-white/70 p-4 shadow-sm sm:p-6">
+              <p class="font-mono text-[10px] uppercase text-[#e35c2b]">A little about me</p>
+              <h2 class="mt-2 text-2xl font-extrabold sm:text-3xl">I build, ship, and support software.</h2>
+              <p class="mt-4 max-w-3xl text-sm leading-relaxed text-[#1a1a1a]/70">I&rsquo;m a Software Engineer with 5 years of experience, focused primarily on Android and mobile development, with full-stack web experience as well. I work across the full development lifecycle in Agile teams, implementing features, troubleshooting production issues, and shipping fixes safely through release. I currently build and refine payment logic around EMV specifications across card brands for secure, compliant transactions, and I bring AI into my daily workflow with GitHub Copilot and Claude Code.</p>
+              <p class="mt-3 max-w-3xl text-sm leading-relaxed text-[#1a1a1a]/70">Before writing code, I spent years as a call center agent and deliberately shifted careers into software development. That experience sharpened my listening, communication, and ability to stay calm under pressure. I care as much about the people using what I build as the systems behind it.</p>
+            </div>
+            <div class="grid grid-cols-3 content-center rounded-lg border border-[#1a1a1a]/10 bg-white/70 p-3 shadow-sm lg:grid-cols-1 lg:p-4">
+              <% [
+                { num: "5+", label: "Years of experience" },
+                { num: "3", label: "Companies" },
+                { num: "600+", label: "Training hours" }
+              ].each do |stat| %>
+                <div class="py-2">
+                  <p class="text-2xl font-extrabold"><%= stat[:num] %></p>
+                  <p class="text-[10px] text-[#1a1a1a]/55"><%= stat[:label] %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </section>
+
+        <section data-dashboard-target="panel" data-view-panel="contact" hidden class="h-full min-h-0">
+          <div class="grid h-full min-h-0 grid-cols-1 gap-5 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+            <div class="flex min-h-0 flex-col justify-center rounded-lg border border-[#1a1a1a]/10 bg-white/70 p-3 shadow-sm sm:p-4">
+              <p class="font-mono text-[10px] uppercase text-[#e35c2b]">Open to good problems</p>
+              <h2 class="mt-2 text-2xl font-extrabold sm:text-3xl">Have a project?<br>Let&rsquo;s talk.</h2>
+              <a href="mailto:lovelyfigueras@gmail.com" class="mt-4 w-fit text-sm font-semibold hover:text-[#e35c2b]">lovelyfigueras@gmail.com ↗</a>
+              <div class="mt-5 flex gap-5 text-xs font-semibold">
+                <a href="https://github.com/lfigueras" target="_blank" rel="noopener" class="hover:text-[#e35c2b]">GitHub ↗</a>
+                <a href="https://www.linkedin.com/in/lovely-joy-figueras" target="_blank" rel="noopener" class="hover:text-[#e35c2b]">LinkedIn ↗</a>
+              </div>
+            </div>
+            <%= form_with url: contact_path, method: :post, class: "grid min-h-0 content-center gap-3 rounded-lg border border-[#1a1a1a]/10 bg-white/70 p-3 shadow-sm sm:grid-cols-2 sm:p-4" do |f| %>
+              <div>
+                <%= f.label :name, class: "mb-1 block text-[11px] font-semibold" %>
+                <%= f.text_field :name, required: true, class: "w-full border border-[#1a1a1a]/15 bg-white/60 px-3 py-2 text-sm focus:border-[#e35c2b] focus:outline-none" %>
+              </div>
+              <div>
+                <%= f.label :email, class: "mb-1 block text-[11px] font-semibold" %>
+                <%= f.email_field :email, required: true, class: "w-full border border-[#1a1a1a]/15 bg-white/60 px-3 py-2 text-sm focus:border-[#e35c2b] focus:outline-none" %>
+              </div>
+              <div class="sm:col-span-2">
+                <%= f.label :message, class: "mb-1 block text-[11px] font-semibold" %>
+                <%= f.text_area :message, rows: 4, required: true, class: "w-full resize-none border border-[#1a1a1a]/15 bg-white/60 px-3 py-2 text-sm focus:border-[#e35c2b] focus:outline-none" %>
+              </div>
+              <div class="sm:col-span-2">
+                <%= f.submit "Send message", class: "cursor-pointer bg-[#e35c2b] px-5 py-2.5 text-xs font-bold text-white transition hover:bg-[#c64b20]" %>
+              </div>
+            <% end %>
+          </div>
+        </section>
+      </div>
+
+      <footer class="hidden shrink-0 border-t border-[#1a1a1a]/10 pt-3 font-mono text-[9px] text-[#1a1a1a]/40 lg:block">
+        LOVELY JOY FIGUERAS · SOFTWARE ENGINEER · <%= Date.current.year %>
+      </footer>
+    </main>
+
+    <nav aria-label="Portfolio views" class="row-start-3 grid grid-cols-5 border-t border-[#1a1a1a]/10 bg-[#f1e7d9] lg:hidden">
+      <% nav_items.each do |item| %>
+        <button type="button" data-dashboard-target="navItem" data-view="<%= item[:id] %>"
+                data-action="dashboard#show" aria-current="<%= item[:id] == "overview" ? "page" : "false" %>"
+                class="border-t-2 border-transparent px-1 text-[10px] font-semibold text-[#1a1a1a]/55 aria-[current=page]:border-[#e35c2b] aria-[current=page]:text-[#1a1a1a]">
+          <%= item[:label] %>
+        </button>
+      <% end %>
+    </nav>
+  </div>
+</div>
