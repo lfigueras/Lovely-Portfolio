@@ -4,7 +4,7 @@ A static portfolio built with **React, TypeScript, and Vite**, ready for GitHub
 Pages. The original Home, About, Skills, Projects, and Contact sections, project
 screenshots, links, portrait, and downloadable resume are preserved.
 
-**GitHub Pages URL:** https://lfigueras.github.io/Lovely-Portfolio/
+**GitHub Pages URL:** https://lfigueras.github.io/
 
 ## Features
 
@@ -56,7 +56,7 @@ needed.
 3. Open **Actions > React portfolio / GitHub Pages** to follow deployment. Choose
   **Run workflow** if the initial push ran before Pages was enabled.
 4. After deployment succeeds, open
-  https://lfigueras.github.io/Lovely-Portfolio/.
+  https://lfigueras.github.io/.
 
 The workflow installs locked dependencies, runs tests, checks TypeScript, builds
 the site, and deploys to Pages. Pull requests run tests and build without
