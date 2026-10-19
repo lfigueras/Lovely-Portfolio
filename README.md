@@ -10,7 +10,7 @@ screenshots, links, portrait, and downloadable resume are preserved.
 
 - Responsive single-page layout with smooth section navigation.
 - Mobile menu and active-section indicators powered by React.
-- Five projects with original screenshots, source links, and live demos or APKs.
+- Three projects with original screenshots, source links, and live demos or APKs.
 - Downloadable PDF resume and an email-draft contact form.
 - Keyboard navigation, accessible labels, and reduced-motion support.
 - Automated tests, strict TypeScript checks, and GitHub Pages deployment.

@@ -1,7 +1,5 @@
 import bakingImage from '../app/assets/images/baking-recipe-keeper-screen.jpg'
 import weatherImage from '../app/assets/images/gweather.png'
-import parkingImage from '../app/assets/images/parkback-find.png'
-import seatmateImage from '../app/assets/images/vanrental.png'
 import budgetImage from '../app/assets/images/budgetcalculator.png'
 
 export const sections = [
@@ -64,25 +62,6 @@ export const projects: Project[] = [
     liveLabel: 'Download APK',
     image: weatherImage,
     mobile: true,
-  },
-  {
-    title: 'ParkBack',
-    tags: ['Ruby on Rails', 'PostgreSQL', 'Hotwire', 'Leaflet'],
-    description: "A mobile-first parking companion that saves your vehicle's location, notes, and a photo, then guides you back with live distance, compass direction, and an OpenStreetMap view.",
-    github: 'https://github.com/lfigueras/Park-Back',
-    live: 'https://parkback-2zwf.onrender.com/',
-    liveLabel: 'Visit Site',
-    image: parkingImage,
-    mobile: true,
-  },
-  {
-    title: 'SeatMate PH',
-    tags: ['Ruby on Rails', 'Hotwire', 'Tailwind CSS', 'Production'],
-    description: 'A responsive marketing site for a van-rental and land-transfer business, built with Ruby on Rails and Hotwire (Turbo + Stimulus). Features a step-by-step booking flow, route-based pricing, and Messenger lead capture - live in production.',
-    github: 'https://github.com/lfigueras/seatmate-ph',
-    live: 'https://seatmate-ph.com/',
-    liveLabel: 'Visit Site',
-    image: seatmateImage,
   },
   {
     title: 'Budgety',

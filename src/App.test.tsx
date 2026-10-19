@@ -26,8 +26,11 @@ afterEach(() => {
 })
 
 describe('portfolio', () => {
-  it('renders all sections and original projects', () => {
+  it('renders all sections and the three featured projects without removed projects', () => {
     render(<App />)
+    expect(projects.map((project) => project.title)).toEqual(['Baking Recipe Keeper', 'GWeather', 'Budgety'])
+    expect(screen.queryByRole('heading', { name: 'SeatMate PH' })).not.toBeInTheDocument()
+    expect(screen.queryByRole('heading', { name: 'ParkBack' })).not.toBeInTheDocument()
     for (const { id } of sections) expect(document.getElementById(id)).toBeInTheDocument()
     for (const project of projects) {
       expect(screen.getByRole('heading', { name: project.title })).toBeInTheDocument()
