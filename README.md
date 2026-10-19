@@ -1,113 +1,100 @@
-# Lovely Joy Figueras — Portfolio
+# Lovely Joy Figueras - Portfolio
 
-My personal portfolio site — a single-page experience with full-viewport sections,
-scroll-snap navigation, a working contact form, and a downloadable résumé.
+A static portfolio built with **React, TypeScript, and Vite**, ready for GitHub
+Pages. The original Home, About, Skills, Projects, and Contact sections, project
+screenshots, links, portrait, and downloadable resume are preserved.
 
-**Live sections:** Home · About · Skills · Projects · Contact
-
-Built with the modern Rails "Omakase" stack: **Ruby on Rails 8**, **Hotwire (Turbo + Stimulus)**,
-and **Tailwind CSS** — no SPA framework, minimal JavaScript.
+**GitHub Pages URL:** https://lfigueras.github.io/Lovely-Portfolio/
 
 ## Features
 
-- **Full-viewport sections** with CSS scroll-snapping and smooth scrolling
-- **Left-side bullet indicator** that tracks the active section (Stimulus + IntersectionObserver)
-- **Responsive navbar** with an animated hamburger menu on small screens
-- **Skills & Tools** cards and **Projects** showcase (with GitHub / live links)
-- **Working contact form** that emails me via Gmail SMTP, with an auto-dismissing flash message
-- **Downloadable résumé** (`/Lovely-Joy-Figueras-Resume.pdf`, generated from `public/resume.html`)
+- Responsive single-page layout with smooth section navigation.
+- Mobile menu and active-section indicators powered by React.
+- Five projects with original screenshots, source links, and live demos or APKs.
+- Downloadable PDF resume and an email-draft contact form.
+- Keyboard navigation, accessible labels, and reduced-motion support.
+- Automated tests, strict TypeScript checks, and GitHub Pages deployment.
 
 ## Tech Stack
 
 | Area | Tools |
 |------|-------|
-| Framework | Ruby on Rails 8 |
-| Frontend | Hotwire (Turbo + Stimulus), Tailwind CSS v4, Importmap |
-| Assets | Propshaft |
-| Mail | Action Mailer + Gmail SMTP |
-| Background/Infra | In-process cache, async jobs, async Action Cable in production |
-| Deploy | Docker + Kamal |
-| Quality | RuboCop (Omakase), Brakeman |
+| UI | React 19, TypeScript, Lucide icons |
+| Styling | Responsive CSS, Manrope typography |
+| Build | Vite |
+| Tests | Vitest, React Testing Library, jsdom |
+| Hosting | GitHub Pages via GitHub Actions |
 
-## Requirements
+## Local Development
 
-- Ruby 3.3.6
-- Bundler
-
-## Getting Started
+Use Node.js 22.12 or newer in the Node 22 release line, or Node.js 24 LTS.
+Ruby, a database, and API keys are not required for the React site.
 
 ```bash
-# install dependencies
-bundle install
-
-# run the app (Rails server + Tailwind watcher)
-bin/dev
+npm ci
+npm run dev
 ```
 
-Then open http://localhost:3000.
-
-> Use `bin/dev` (not just `bin/rails server`) so Tailwind recompiles on change.
-
-## Contact Form Setup
-
-In development, the contact form sends through Gmail SMTP. Credentials are read
-from Rails encrypted credentials or environment variables; no secrets are committed.
-
-1. Enable 2-Step Verification on the Gmail account and create an **App Password**.
-2. Add them to encrypted credentials:
-
-   ```bash
-   EDITOR="code --wait" bin/rails credentials:edit
-   ```
-
-   ```yaml
-   gmail:
-     user: your-email@gmail.com
-     app_password: your-16-char-app-password
-   ```
-
-3. Restart the server. (Alternatively, set `GMAIL_USER` and `GMAIL_APP_PASSWORD` env vars.)
-
-## Updating the Résumé
-
-The résumé source lives at `public/resume.html`. After editing it, regenerate the PDF:
+Open the local URL printed by Vite, normally http://127.0.0.1:5173.
 
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless --disable-gpu --no-pdf-header-footer \
-  --print-to-pdf="$PWD/public/Lovely-Joy-Figueras-Resume.pdf" \
-  "http://localhost:3000/resume.html"
+npm test          # Component and interaction tests
+npm run build    # Strict TypeScript checks and production build
+npm run preview  # Serve the production build locally
 ```
 
-## Deployment
+Only the generated `dist/` directory is deployed. Relative build URLs support
+both repository Pages sites and root/custom-domain sites without changing the
+Vite base path. Navigation uses section hashes, so no SPA routing fallback is
+needed.
 
-### Render
+## GitHub Pages
 
-The repository includes a `render.yaml` Blueprint for a database-free Docker
-web service in Singapore. In Render, create a new Blueprint from this repository
-and provide `RAILS_MASTER_KEY` when prompted. Commits to `main` trigger deploys.
-Cache, background jobs, and Action Cable use in-process adapters; no database or
-persistent disk is required.
+1. In the GitHub repository, open **Settings > Pages** and set **Source** to
+  **GitHub Actions**.
+2. Push updates to `main`, including `package-lock.json` when dependencies change.
+3. Open **Actions > React portfolio / GitHub Pages** to follow deployment. Choose
+  **Run workflow** if the initial push ran before Pages was enabled.
+4. After deployment succeeds, open
+  https://lfigueras.github.io/Lovely-Portfolio/.
 
-In production, the contact form sends through Resend. Configure `RESEND_API_KEY`
-and a verified `RESEND_FROM_EMAIL` sender address in Render.
+The workflow installs locked dependencies, runs tests, checks TypeScript, builds
+the site, and deploys to Pages. Pull requests run tests and build without
+deploying. Subsequent pushes to `main` deploy automatically. The repository must
+be eligible for GitHub Pages under your GitHub plan; public repositories support
+free Pages hosting.
 
-The Blueprint uses Render's free web-service plan for an initial deployment.
-The free instance may spin down during inactivity. Gmail credentials are needed
-only if you want to test the contact form in development.
+## Contact
 
-### Kamal
+GitHub Pages cannot run Rails, SMTP, or server-side email delivery. The contact
+form validates the visitor's details and opens their configured email app with a
+draft addressed to lovelyfigueras@gmail.com. The visitor must send the email;
+the site does not claim it was delivered. A direct email link is also available.
 
-The app can also be deployed via [Kamal](https://kamal-deploy.org). Update the
-placeholder values in `config/deploy.yml` (image, server IP, host), set
-`RAILS_MASTER_KEY` and registry credentials, then:
+To send directly from the page in the future, connect a hosted form service or
+separate backend. Never place SMTP passwords, Resend keys, or other secrets in
+frontend code or `VITE_*` variables, which are public in the browser.
 
-```bash
-bin/kamal setup   # first time
-bin/kamal deploy  # subsequent deploys
-```
+## Editing Content
+
+- `src/App.tsx`: page components, biography, navigation, and contact form.
+- `src/data.ts`: project descriptions, links, skills, and tool groups.
+- `src/styles.css`: responsive styling and reduced-motion support.
+- `app/assets/images/`: existing image sources imported by React.
+- `public/Lovely-Joy-Figueras-Resume.pdf`: resume imported into the static build.
+- `public/resume.html`: editable resume source; print to PDF after updating it.
+
+Vite processes only the explicitly referenced static assets. It does not copy
+the Rails public directory or old compiled assets into the deployed site.
+
+## Existing Rails and Android Code
+
+The original Rails application, deployment configuration, Rails CI, and Android
+project remain intact for reference and existing deployments. They are not
+required by the React build or deployed by the Pages workflow. `bin/dev` still
+starts the legacy Rails app; `npm run dev` starts the React app.
 
 ## License
 
-© Lovely Joy Figueras. All rights reserved.
+Copyright Lovely Joy Figueras. All rights reserved.
 
