@@ -10,7 +10,7 @@ screenshots, links, portrait, and downloadable resume are preserved.
 
 - Responsive single-page layout with smooth section navigation.
 - Mobile menu and active-section indicators powered by React.
-- Three projects with original screenshots, source links, and live demos or APKs.
+- Four projects with project imagery, source links, and live demos or APKs.
 - Downloadable PDF resume and an email-draft contact form.
 - Keyboard navigation, accessible labels, and reduced-motion support.
 - Automated tests, strict TypeScript checks, and GitHub Pages deployment.
@@ -81,8 +81,8 @@ frontend code or `VITE_*` variables, which are public in the browser.
 - `src/data.ts`: project descriptions, links, skills, and tool groups.
 - `src/styles.css`: responsive styling and reduced-motion support.
 - `app/assets/images/`: existing image sources imported by React.
-- `public/Lovely-Joy-Figueras-Resume.pdf`: resume imported into the static build.
-- `public/resume.html`: editable resume source; print to PDF after updating it.
+- `public/Lovely-Joy-Figueras-Resume.pdf`: résumé PDF imported into the static build.
+- `public/resume.html`: editable résumé source. Run `npm run resume:pdf` to regenerate the PDF with Google Chrome installed. Set `CHROME_PATH` if Chrome is installed elsewhere.
 
 Vite processes only the explicitly referenced static assets. It does not copy
 the Rails public directory or old compiled assets into the deployed site.

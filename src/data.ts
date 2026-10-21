@@ -1,6 +1,7 @@
 import bakingImage from '../app/assets/images/baking-recipe-keeper-screen.jpg'
 import weatherImage from '../app/assets/images/gweather.png'
 import budgetImage from '../app/assets/images/budgetcalculator.png'
+import parkbackImage from '../app/assets/images/parkback-find.png'
 
 export const sections = [
   { id: 'home', label: 'Home' },
@@ -22,12 +23,12 @@ export const capabilities = [
 ]
 
 export const tools = [
-  { group: 'Mobile', tools: 'Kotlin, Java, Android, Jetpack Compose, MVVM' },
-  { group: 'Web', tools: 'Ruby on Rails, Hotwire, JavaScript, Tailwind, Alpine.js' },
-  { group: 'Database', tools: 'PostgreSQL, Room' },
-  { group: 'Integration', tools: 'REST APIs, Retrofit, Firebase Crashlytics, Google Analytics' },
+  { group: 'Mobile', tools: 'Kotlin, Java, Android, Jetpack Compose, MVVM, MVP' },
+  { group: 'Web', tools: 'React.js, TypeScript, Vite, Ruby on Rails, JavaScript, Tailwind CSS, Alpine.js' },
+  { group: 'Database', tools: 'Firebase Firestore, Firebase Realtime Database, PostgreSQL, Room' },
+  { group: 'Integration', tools: 'REST APIs, Retrofit, Firebase Authentication, Firebase Crashlytics, Google Analytics' },
   { group: 'AI', tools: 'GitHub Copilot, Claude Code' },
-  { group: 'DevOps', tools: 'Azure DevOps, CI/CD, Git' },
+  { group: 'CI/CD & Build Automation', tools: 'Azure DevOps, GitHub Actions, GitHub Pages, Git' },
   { group: 'Workflow', tools: 'Agile Development' },
 ]
 
@@ -44,6 +45,16 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: 'ParkBack',
+    tags: ['React.js', 'TypeScript', 'Firebase', 'Vite', 'GitHub Pages'],
+    description: 'A responsive parking spot saver and finder rebuilt as a serverless web app with React.js and TypeScript. Firebase Anonymous Authentication, Firestore, and Realtime Database keep parking details and photos in sync, with the app deployed on GitHub Pages.',
+    github: 'https://github.com/lfigueras/Park-Back',
+    live: 'https://lfigueras.github.io/Park-Back/',
+    liveLabel: 'Live App',
+    image: parkbackImage,
+    mobile: true,
+  },
+  {
     title: 'Baking Recipe Keeper',
     tags: ['Kotlin', 'Jetpack Compose', 'MVVM', 'Room'],
     description: 'A warm, offline-first Android app to save, scale, and follow baking recipes. Live serving & unit conversion, favorites and tags, shopping lists, a photo/video gallery, and backup & restore - built with Jetpack Compose, MVVM + StateFlow, and Room.',
@@ -56,7 +67,7 @@ export const projects: Project[] = [
   {
     title: 'GWeather',
     tags: ['Kotlin', 'Jetpack Compose', 'Retrofit', 'Room'],
-    description: 'A real-time Android weather app built with Jetpack Compose and MVVM that pulls live forecasts from the OpenWeather API (Retrofit/Moshi), with location services and a locally stored history of weather reports in Room.',
+    description: 'A real-time Android weather app built with Jetpack Compose and MVVM that pulls live forecasts from the OpenWeather API using Retrofit, with location services and a locally stored history of weather reports in Room.',
     github: 'https://github.com/lfigueras/GWeather',
     live: 'https://github.com/lfigueras/GWeather/releases/download/v0.1.0/Gweather-v0.1.0.apk',
     liveLabel: 'Download APK',

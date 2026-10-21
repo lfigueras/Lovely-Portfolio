@@ -57,8 +57,8 @@ function About() {
         </ul>
         <div>
           <h2 id="about-heading">About me</h2>
-          <p className="about-copy">I'm a Software Engineer with 5 years of experience, focused primarily on Android and mobile development, with full-stack web experience as well. I work across the full development lifecycle in Agile teams, implementing features, troubleshooting production issues, and shipping fixes safely through release. I currently build and refine payment logic around EMV specifications across card brands for secure, compliant transactions, and I bring AI into my daily workflow with GitHub Copilot and Claude Code. I enjoy owning problems end-to-end, from root cause to production.</p>
-          <p className="about-copy">Before writing code, I spent years as a call center agent - a career I deliberately shifted away from to pursue software development. That chapter sharpened the skills I lean on every day: listening closely, staying calm under pressure, and explaining complex things in plain language. It's why I care as much about the people using what I build as the systems behind it.</p>
+          <p className="about-copy">I'm a software engineer with 5 years of experience building Android apps and web features. I currently work on payment software, including EMV-compliant transaction flows and production releases.</p>
+          <p className="about-copy">My path into software began after several years in customer service, which taught me to listen carefully, stay calm under pressure, and explain complex problems clearly. I bring that perspective to collaborative teams and take ownership from investigation through release.</p>
           <dl className="stats">
             {[['5', 'Years of experience'], ['3', 'Companies'], ['600', 'Training hours']].map(([number, label]) => (
               <div key={label}><dt>{label}</dt><dd>{number} <span>+</span></dd></div>
@@ -109,7 +109,7 @@ function Projects() {
                 <a className="text-link" href={project.live} target="_blank" rel="noopener noreferrer" aria-label={`${project.liveLabel} for ${project.title}`}>{project.liveLabel}<ArrowUpRight size={16} aria-hidden="true" /></a>
               </div>
             </div>
-            <div className={`project-media ${project.mobile ? 'mobile-project' : ''}`}>
+            <div className={`project-media ${project.mobile ? 'mobile-project' : ''} ${project.title === 'Budgety' ? 'budgety-project' : ''}`}>
               <img src={project.image} alt={`${project.title} screenshot`} loading="lazy" decoding="async" />
             </div>
           </article>
@@ -136,18 +136,21 @@ function Contact() {
         <form className="two-columns contact-form" onSubmit={handleSubmit}>
           <div>
             <h2 id="contact-heading">Have a project?<br />Let's talk!</h2>
-            <button type="submit" className="button contact-submit"><Send size={16} aria-hidden="true" />Open email draft</button>
             <div className="social-links">
               <a href="mailto:lovelyfigueras@gmail.com" aria-label="Email" title="Email"><Mail /></a>
               <a href="https://github.com/lfigueras" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><Github /></a>
               <a href="https://www.linkedin.com/in/lovely-joy-figueras" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><Linkedin /></a>
             </div>
-            {draftReady && <p className="contact-status" role="status">Your email draft is ready in your email app. Send it there to get in touch, or email <a href="mailto:lovelyfigueras@gmail.com">lovelyfigueras@gmail.com</a> directly.</p>}
           </div>
           <div className="contact-fields">
             <div><label htmlFor="name">Name</label><input id="name" name="name" autoComplete="name" maxLength={120} required /></div>
             <div><label htmlFor="email">Email</label><input id="email" name="email" type="email" autoComplete="email" maxLength={254} required /></div>
             <div><label htmlFor="message">Message</label><textarea id="message" name="message" rows={4} maxLength={4000} required /></div>
+            <div className="contact-actions">
+              <button type="submit" className="button contact-submit"><Send size={16} aria-hidden="true" />Open email draft</button>
+              <p className="contact-hint">Opens your email app so you can review and send the message.</p>
+              {draftReady && <p className="contact-status" role="status">Your email draft is ready. You can also email <a href="mailto:lovelyfigueras@gmail.com">lovelyfigueras@gmail.com</a> directly.</p>}
+            </div>
           </div>
         </form>
       </div>
